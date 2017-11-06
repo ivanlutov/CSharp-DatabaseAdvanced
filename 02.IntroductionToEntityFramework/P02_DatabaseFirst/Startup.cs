@@ -1,14 +1,13 @@
-﻿using System;
-using System.Data;
-using System.Globalization;
-using System.IO;
-using P02_DatabaseFirst.Data;
-using P02_DatabaseFirst.Data.Models;
-using System.Linq;
-using Microsoft.EntityFrameworkCore;
-
-namespace P02_DatabaseFirst
+﻿namespace P02_DatabaseFirst
 {
+    using System;
+    using System.Data;
+    using System.Globalization;
+    using System.IO;
+    using P02_DatabaseFirst.Data;
+    using P02_DatabaseFirst.Data.Models;
+    using System.Linq;
+    using Microsoft.EntityFrameworkCore;
     public class Startup
     {
         public static void Main()
