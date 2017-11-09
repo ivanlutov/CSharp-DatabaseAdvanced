@@ -1,8 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
-using P01_HospitalDatabase.Data.Models;
-
-namespace P01_HospitalDatabase.Data
+﻿namespace P01_HospitalDatabase.Data
 {
+    using Microsoft.EntityFrameworkCore;
+    using Models;
     public class HospitalContext : DbContext
     {
         public DbSet<Diagnose> Diagnoses { get; set; }

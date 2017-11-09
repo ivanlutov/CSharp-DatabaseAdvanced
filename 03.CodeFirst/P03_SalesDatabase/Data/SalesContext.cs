@@ -1,8 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
-using P03_SalesDatabase.Data.Models;
-
-namespace P03_SalesDatabase.Data
+﻿namespace P03_SalesDatabase.Data
 {
+    using Microsoft.EntityFrameworkCore;
+    using Models;
+
     public class SalesContext : DbContext
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

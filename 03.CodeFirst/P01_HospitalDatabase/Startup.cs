@@ -1,12 +1,9 @@
-﻿using System;
-
-namespace P01_HospitalDatabase
+﻿namespace P01_HospitalDatabase
 {
-    class Startup
+    public class Startup
     {
-        static void Main(string[] args)
+        public static void Main()
         {
-            Console.WriteLine("Hello World!");
         }
     }
 }

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace P03_SalesDatabase
+﻿namespace P03_SalesDatabase
 {
     public class Startup
     {

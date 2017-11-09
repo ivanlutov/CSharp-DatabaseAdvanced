@@ -1,10 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
-using System;
-using System.Collections.Generic;
-
-namespace P01_HospitalDatabase.Migrations
+﻿namespace P01_HospitalDatabase.Migrations
 {
+    using Microsoft.EntityFrameworkCore.Metadata;
+    using Microsoft.EntityFrameworkCore.Migrations;
+    using System;
     public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)

@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace P03_SalesDatabase.Data.Models
+﻿namespace P03_SalesDatabase.Data.Models
 {
+    using System;
+
     public class Sale
     {
         public int SaleId { get; set; }
