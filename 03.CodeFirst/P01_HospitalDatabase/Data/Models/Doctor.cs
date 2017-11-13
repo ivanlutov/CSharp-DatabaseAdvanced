@@ -10,6 +10,6 @@
 
         public string Specialty { get; set; }
 
-        public ICollection<Visitation> Visitations { get; set; }
+        public ICollection<Visitation> Visitations { get; set; } = new List<Visitation>();
     }
 }
