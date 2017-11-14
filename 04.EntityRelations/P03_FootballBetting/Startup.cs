@@ -7,9 +7,7 @@
         public static void Main()
         {
             var context = new FootballBettingContext();
-
             context.Database.EnsureDeleted();
-
             context.Database.Migrate();
         }
     }
