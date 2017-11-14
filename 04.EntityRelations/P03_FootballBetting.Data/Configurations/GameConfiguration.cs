@@ -10,10 +10,15 @@
             builder
                 .ToTable("Games");
 
-            //builder
-            //    .HasMany(g => g.Bets)
-            //    .WithOne(b => b.Game)
-            //    .HasForeignKey(b => b.GameId);
+            builder
+                .HasOne(t => t.AwayTeam)
+                .WithMany(g => g.AwayGames)
+                .HasForeignKey(t => t.AwayTeamId);
+
+            builder
+                .HasOne(t => t.HomeTeam)
+                .WithMany(g => g.HomeGames)
+                .HasForeignKey(t => t.HomeTeamId);
         }
     }
 }

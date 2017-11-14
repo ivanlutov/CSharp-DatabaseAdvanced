@@ -2,7 +2,6 @@
 {
     using Microsoft.EntityFrameworkCore;
     using Data;
-    using System;
     public class Startup
     {
         public static void Main()
