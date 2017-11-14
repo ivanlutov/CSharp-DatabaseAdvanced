@@ -1,27 +1,27 @@
-﻿using P01_StudentSystem.Data.Configurations;
-using P01_StudentSystem.Data.Models;
-
-namespace P01_StudentSystem.Data
+﻿namespace P01_StudentSystem.Data
 {
+    using Configurations;
+    using Models;
+
     using Microsoft.EntityFrameworkCore;
 
     public class StudentSystemContext : DbContext
     {
+        public StudentSystemContext()
+        {
+
+        }
+        public StudentSystemContext(DbContextOptions options)
+            : base(options)
+        {
+
+        }
+
         public DbSet<Student> Students { get; set; }
         public DbSet<Course> Courses { get; set; }
         public DbSet<Homework> HomeworkSubmissions { get; set; }
         public DbSet<Resource> Resources { get; set; }
         public DbSet<StudentCourse> StudentCourses { get; set; }
-
-        public StudentSystemContext()
-        {
-            
-        }
-        public StudentSystemContext(DbContextOptions options)
-            :base(options)
-        {
-
-        }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

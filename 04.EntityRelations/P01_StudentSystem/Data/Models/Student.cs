@@ -14,7 +14,7 @@
 
         public DateTime? Birthday { get; set; }
 
-        public ICollection<StudentCourse> StudentCourse { get; set; } = new HashSet<StudentCourse>();
+        public ICollection<StudentCourse> CourseEnrollments { get; set; } = new HashSet<StudentCourse>();
 
         public ICollection<Homework> HomeworkSubmissions { get; set; } = new HashSet<Homework>();
     }

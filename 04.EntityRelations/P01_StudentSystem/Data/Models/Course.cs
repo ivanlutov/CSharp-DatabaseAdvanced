@@ -16,7 +16,7 @@
 
         public decimal Price { get; set; }
 
-        public ICollection<StudentCourse> StudentCourse { get; set; } = new HashSet<StudentCourse>();
+        public ICollection<StudentCourse> StudentsEnrolled { get; set; } = new HashSet<StudentCourse>();
 
         public ICollection<Resource> Resources { get; set; } = new HashSet<Resource>();
 

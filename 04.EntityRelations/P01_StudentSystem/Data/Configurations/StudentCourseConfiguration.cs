@@ -12,13 +12,13 @@
 
             builder
                 .HasOne(sc => sc.Student)
-                .WithMany(s => s.StudentCourse)
+                .WithMany(s => s.CourseEnrollments)
                 .HasForeignKey(sc => sc.StudentId)
                 .OnDelete(DeleteBehavior.Restrict);
 
             builder
                 .HasOne(sc => sc.Course)
-                .WithMany(s => s.StudentCourse)
+                .WithMany(s => s.StudentsEnrolled)
                 .HasForeignKey(sc => sc.CourseId)
                 .OnDelete(DeleteBehavior.Restrict);
 
