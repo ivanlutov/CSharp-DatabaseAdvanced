@@ -114,7 +114,7 @@
                 }
             }
 
-            foreach (var creditCard in creditCards)
+            foreach (var creditCard in creditCards.OrderBy(c => c.CreditCardId))
             {
                 var currentCreditCard = context.CreditCards.Find(creditCard.CreditCardId);
 
