@@ -1,18 +1,32 @@
-﻿namespace PhotoShare.Client.Core.Commands
+﻿using System;
+using System.Linq;
+using System.Runtime.CompilerServices;
+
+namespace PhotoShare.Client.Core.Commands
 {
     using Models;
     using Data;
 
-    public class AddTownCommand
+    public class AddTownCommand : ICommand
     {
         // AddTown <townName> <countryName>
         public string Execute(string[] data)
         {
-            string townName = data[1];
-            string country = data[0];
+            string townName = data[0];
+            string country = data[1];
 
             using (PhotoShareContext context = new PhotoShareContext())
             {
+                if (Session.User == null)
+                {
+                    throw new InvalidOperationException("Invalid credentials!");
+                }
+
+                if (context.Towns.SingleOrDefault(t => t.Name == townName) != null)
+                {
+                    throw new ArgumentException($"Town {townName} was already added!");
+                }
+
                 Town town = new Town
                 {
                     Name = townName,
@@ -22,7 +36,7 @@
                 context.Towns.Add(town);
                 context.SaveChanges();
 
-                return townName + " was added to database!";
+                return $"Town {townName} was added successfully!";
             }
         }
     }

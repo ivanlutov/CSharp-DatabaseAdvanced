@@ -1,11 +1,13 @@
-﻿namespace PhotoShare.Client.Core.Commands
+﻿using System.Linq;
+
+namespace PhotoShare.Client.Core.Commands
 {
     using System;
 
     using Models;
     using Data;
 
-    public class RegisterUserCommand
+    public class RegisterUserCommand : ICommand
     {
         // RegisterUser <username> <password> <repeat-password> <email>
         public string Execute(string[] data)
@@ -15,9 +17,17 @@
             string repeatPassword = data[2];
             string email = data[3];
 
-            if (password == repeatPassword)
+            using (PhotoShareContext context = new PhotoShareContext())
             {
-                throw new ArgumentException("Passwords do not match!");
+                if (context.Users.SingleOrDefault(u => u.Username == username) != null)
+                {
+                    throw new InvalidOperationException($"Username {username} is already taken!");
+                }
+
+                if (password != repeatPassword)
+                {
+                    throw new ArgumentException("Passwords do not match!");
+                }
             }
 
             User user = new User

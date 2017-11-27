@@ -8,7 +8,7 @@
     {
         public static void Main()
         {
-            ResetDatabase();
+            //ResetDatabase();
 
             CommandDispatcher commandDispatcher = new CommandDispatcher();
             Engine engine = new Engine(commandDispatcher);
