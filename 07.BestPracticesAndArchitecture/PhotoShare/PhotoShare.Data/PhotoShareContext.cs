@@ -1,7 +1,6 @@
 namespace PhotoShare.Data
 {
     using Microsoft.EntityFrameworkCore;
-
     using Models;
     using Configuration;
 

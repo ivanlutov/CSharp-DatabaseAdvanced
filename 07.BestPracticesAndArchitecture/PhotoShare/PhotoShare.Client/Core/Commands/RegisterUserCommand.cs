@@ -1,11 +1,9 @@
-﻿using System.Linq;
-
-namespace PhotoShare.Client.Core.Commands
+﻿namespace PhotoShare.Client.Core.Commands
 {
     using System;
-
     using Models;
     using Data;
+    using System.Linq;
 
     public class RegisterUserCommand : ICommand
     {

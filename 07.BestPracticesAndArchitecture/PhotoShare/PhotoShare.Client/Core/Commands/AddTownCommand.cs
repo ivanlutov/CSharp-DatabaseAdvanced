@@ -1,11 +1,9 @@
-﻿using System;
-using System.Linq;
-using System.Runtime.CompilerServices;
-
-namespace PhotoShare.Client.Core.Commands
+﻿namespace PhotoShare.Client.Core.Commands
 {
     using Models;
     using Data;
+    using System;
+    using System.Linq;
 
     public class AddTownCommand : ICommand
     {

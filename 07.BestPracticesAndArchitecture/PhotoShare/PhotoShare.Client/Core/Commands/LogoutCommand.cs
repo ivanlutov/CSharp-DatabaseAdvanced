@@ -1,8 +1,7 @@
-﻿using System;
-using PhotoShare.Models;
-
-namespace PhotoShare.Client.Core.Commands
+﻿namespace PhotoShare.Client.Core.Commands
 {
+    using System;
+
     public class LogoutCommand : ICommand
     {
         public string Execute(string[] data)

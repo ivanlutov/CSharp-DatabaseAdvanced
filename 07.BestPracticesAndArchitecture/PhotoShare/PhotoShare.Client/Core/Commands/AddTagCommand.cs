@@ -1,11 +1,10 @@
-﻿using System;
-using System.Linq;
-
-namespace PhotoShare.Client.Core.Commands
+﻿namespace PhotoShare.Client.Core.Commands
 {
     using Models;
     using Data;
     using Utilities;
+    using System;
+    using System.Linq;
 
     public class AddTagCommand : ICommand
     {

@@ -1,11 +1,11 @@
-﻿using System;
-using System.Linq;
-using System.Text;
-using Microsoft.EntityFrameworkCore;
-using PhotoShare.Data;
-
-namespace PhotoShare.Client.Core.Commands
+﻿namespace PhotoShare.Client.Core.Commands
 {
+    using System;
+    using System.Linq;
+    using System.Text;
+    using Microsoft.EntityFrameworkCore;
+    using PhotoShare.Data;
+
     public class ListFriendsCommand : ICommand
     {
         public string Execute(string[] data)

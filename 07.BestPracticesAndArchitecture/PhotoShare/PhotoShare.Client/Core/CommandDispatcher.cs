@@ -1,10 +1,9 @@
-﻿using System.Linq;
-using System.Reflection;
-using PhotoShare.Client.Core.Commands;
-
-namespace PhotoShare.Client.Core
+﻿namespace PhotoShare.Client.Core
 {
     using System;
+    using System.Linq;
+    using System.Reflection;
+    using PhotoShare.Client.Core.Commands;
 
     public class CommandDispatcher
     {

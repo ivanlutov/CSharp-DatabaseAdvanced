@@ -1,11 +1,10 @@
-﻿using System.Linq;
-using Microsoft.EntityFrameworkCore;
-using PhotoShare.Data;
-using PhotoShare.Models;
-
-namespace PhotoShare.Client.Core.Commands
+﻿namespace PhotoShare.Client.Core.Commands
 {
     using System;
+    using System.Linq;
+    using Microsoft.EntityFrameworkCore;
+    using PhotoShare.Data;
+    using PhotoShare.Models;
 
     public class AcceptFriendCommand : ICommand
     {
@@ -13,63 +12,65 @@ namespace PhotoShare.Client.Core.Commands
         public string Execute(string[] data)
         {
             var requesterUsername = data[0];
-            var addedFriendUsername = data[1];
+            var accepterUsername = data[1];
 
             using (PhotoShareContext context = new PhotoShareContext())
             {
-                var requestingUser =
-                    context
-                        .Users
-                        .Include(u => u.FriendsAdded)
-                        .ThenInclude(fa => fa.Friend)
-                        .SingleOrDefault(u => u.Username == requesterUsername);
-                if (requestingUser == null)
+                var requesterUser = context.Users
+                    .Include(u => u.FriendsAdded)
+                    .ThenInclude(af => af.Friend)
+                    .FirstOrDefault(u => u.Username == requesterUsername);
+
+                var accepterUser = context.Users
+                    .Include(u => u.AddedAsFriendBy)
+                    .ThenInclude(fa => fa.Friend)
+                    .FirstOrDefault(u => u.Username == accepterUsername);
+
+
+                if (accepterUser == null)
                 {
                     throw new ArgumentException($"{requesterUsername} not found!");
                 }
 
-                var addedFriend =
-                    context
-                        .Users
-                        .Include(u => u.FriendsAdded)
-                        .ThenInclude(fa => fa.Friend)
-                        .SingleOrDefault(u => u.Username == addedFriendUsername);
-
-                if (addedFriend == null)
+                if (requesterUser == null)
                 {
-                    throw new ArgumentException($"{addedFriendUsername} not found!");
+                    throw new ArgumentException($"{accepterUsername} not found!");
                 }
 
-                bool alreadyAdded = requestingUser.FriendsAdded.Any(u => u.Friend == addedFriend);
+                bool requesterAlreadySendRequest = requesterUser.FriendsAdded.Any(u => u.Friend == accepterUser);
 
-                bool accepted = addedFriend.FriendsAdded.Any(u => u.Friend == requestingUser);
+                bool accepterAlreadyFriends = accepterUser.AddedAsFriendBy.Any(u => u.Friend == requesterUser);
 
-                if (alreadyAdded && !accepted)
+
+                //check frienship 12 exist in username1 FriendsAdded and in username2 AddedAsFriendBy
+
+                //check they are already friends
+
+                if (requesterAlreadySendRequest && accepterAlreadyFriends)
                 {
-                    throw new InvalidOperationException("Friend request already sent!");
+                    throw new InvalidOperationException($"{accepterUsername} is already a friend to {requesterUsername}");
                 }
 
-                if (alreadyAdded && accepted)
+                //check is friendship 12 exist in user1 FriendAdded -  was request sent
+
+                if (!requesterAlreadySendRequest)
                 {
-                    throw new InvalidOperationException($"{addedFriendUsername} is already a friend to {requesterUsername}");
+                    throw new InvalidOperationException($"{requesterUsername} has not added{accepterUsername} as a friend");
                 }
 
-                if (!alreadyAdded && accepted)
+                var frienship12 = new Friendship()
                 {
-                    throw new InvalidOperationException($"{requesterUsername} has already received a friend request from {addedFriendUsername}");
-                }
+                    UserId = accepterUser.Id,
+                    FriendId = requesterUser.Id
+                };
 
-                requestingUser
-                    .FriendsAdded.Add(new Friendship
-                    {
-                        User = requestingUser,
-                        Friend = addedFriend
-                    });
+                accepterUser.AddedAsFriendBy.Add(frienship12);
 
                 context.SaveChanges();
 
-                return $"Friend {addedFriendUsername} added to {requesterUsername}";
             }
+
+            return $"{accepterUsername} accepted {requesterUsername} as a friend";
         }
     }
 }

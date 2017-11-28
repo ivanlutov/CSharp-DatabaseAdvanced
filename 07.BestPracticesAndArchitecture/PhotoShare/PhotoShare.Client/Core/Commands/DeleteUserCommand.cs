@@ -2,7 +2,6 @@
 {
     using System;
     using System.Linq;
-
     using Data;
 
     public class DeleteUserCommand : ICommand

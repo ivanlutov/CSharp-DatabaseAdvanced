@@ -1,11 +1,10 @@
-﻿using System.Linq;
-using Microsoft.EntityFrameworkCore;
-using PhotoShare.Data;
-using PhotoShare.Models;
-
-namespace PhotoShare.Client.Core.Commands
+﻿namespace PhotoShare.Client.Core.Commands
 {
     using System;
+    using System.Linq;
+    using Microsoft.EntityFrameworkCore;
+    using PhotoShare.Data;
+    using PhotoShare.Models;
 
     public class ShareAlbumCommand : ICommand
     {

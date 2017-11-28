@@ -1,9 +1,8 @@
-﻿using System.Linq;
-using PhotoShare.Data;
-
-namespace PhotoShare.Client.Core.Commands
+﻿namespace PhotoShare.Client.Core.Commands
 {
     using System;
+    using System.Linq;
+    using PhotoShare.Data;
 
     public class ModifyUserCommand : ICommand
     {

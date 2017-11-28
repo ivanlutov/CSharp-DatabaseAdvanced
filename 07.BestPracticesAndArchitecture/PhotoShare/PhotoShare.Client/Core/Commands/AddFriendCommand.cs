@@ -1,80 +1,78 @@
-﻿using System.Linq;
-using Microsoft.EntityFrameworkCore;
-using PhotoShare.Data;
-using PhotoShare.Models;
-
-namespace PhotoShare.Client.Core.Commands
+﻿namespace PhotoShare.Client.Core.Commands
 {
     using System;
+    using System.Linq;
+    using Microsoft.EntityFrameworkCore;
+    using PhotoShare.Data;
+    using PhotoShare.Models;
+
 
     public class AddFriendCommand : ICommand
     {
         // AddFriend <username1> <username2>
         public string Execute(string[] data)
         {
-            var requesterUsername = data[0];
-            var addedFriendUsername = data[1];
+            var sendingRequestUsername = data[0];
+            var receivedRequestUsername = data[1];
 
             using (PhotoShareContext context = new PhotoShareContext())
             {
-                if (Session.User == null)
+                if (Session.User == null || Session.User.Username != sendingRequestUsername)
                 {
-                    throw new ArgumentException("Invalid credentials!");
+                    throw new InvalidOperationException("Invalid credentials!");
                 }
 
-                var requestingUser =
-                    context
-                    .Users
+                var sendingRequestUser = context.Users
                     .Include(u => u.FriendsAdded)
-                        .ThenInclude(fa => fa.Friend)
-                    .SingleOrDefault(u => u.Username == requesterUsername);
-                if (requestingUser == null)
+                    .ThenInclude(af => af.Friend)
+                    .FirstOrDefault(u => u.Username == sendingRequestUsername);
+
+                var receivedRequestUser = context.Users
+                    .Include(u => u.AddedAsFriendBy)
+                    .ThenInclude(u => u.Friend)
+                    .FirstOrDefault(u => u.Username == receivedRequestUsername);
+
+
+                if (sendingRequestUser == null)
                 {
-                    throw new ArgumentException($"{requesterUsername} not found!");
+                    throw new ArgumentException($"{sendingRequestUsername} not found!");
                 }
 
-                var addedFriend =
-                    context
-                    .Users
-                    .Include(u => u.FriendsAdded)
-                        .ThenInclude(fa => fa.Friend)
-                    .SingleOrDefault(u => u.Username == addedFriendUsername);
-
-                if (addedFriend == null)
+                if (receivedRequestUser == null)
                 {
-                    throw new ArgumentException($"{addedFriendUsername} not found!");
+                    throw new ArgumentException($"{receivedRequestUsername} not found!");
                 }
 
-                bool alreadyAdded = requestingUser.FriendsAdded.Any(u => u.Friend == addedFriend);
+                bool senderAlreadySendRequest = sendingRequestUser.FriendsAdded.Any(u => u.Friend == receivedRequestUser);
 
-                bool accepted = addedFriend.FriendsAdded.Any(u => u.Friend == requestingUser);
 
-                if (alreadyAdded && !accepted)
+                bool receiverAlreadyAcceptRequest = receivedRequestUser.AddedAsFriendBy.Any(u => u.Friend == sendingRequestUser);
+
+                //check frienship 12 exist in username1 FriendsAdded and in username2 AddedAsFriendBy
+                if (senderAlreadySendRequest && receiverAlreadyAcceptRequest)
                 {
-                    throw new InvalidOperationException("Friend request already sent!");
+                    throw new InvalidOperationException($"{receivedRequestUsername} is already a friend to {sendingRequestUsername}");
                 }
 
-                if (alreadyAdded && accepted)
+                if (!receiverAlreadyAcceptRequest && senderAlreadySendRequest)
                 {
-                    throw new InvalidOperationException($"{addedFriendUsername} is already a friend to {requesterUsername}");
+                    throw new InvalidOperationException($"{sendingRequestUsername} already send a request to {receivedRequestUsername}");
                 }
 
-                if (!alreadyAdded && accepted)
+                var frienship12 = new Friendship()
                 {
-                    throw new InvalidOperationException($"{requesterUsername} has already received a friend request from {addedFriendUsername}");
-                }
+                    User = sendingRequestUser,
+                    Friend = receivedRequestUser
+                };
 
-                requestingUser
-                    .FriendsAdded.Add(new Friendship
-                    {
-                        User = requestingUser,
-                        Friend = addedFriend
-                    });
+
+                sendingRequestUser.FriendsAdded.Add(frienship12);
 
                 context.SaveChanges();
 
-                return $"Friend {addedFriendUsername} added to {requesterUsername}";
             }
+
+            return $"Friend {receivedRequestUsername} added to {sendingRequestUsername}";
         }
     }
 }
