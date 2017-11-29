@@ -13,5 +13,9 @@
         public ICollection<Trip> OriginTrips { get; set; } = new HashSet<Trip>();
 
         public ICollection<Trip> DestinationTrips { get; set; } = new HashSet<Trip>();
+
+        public ICollection<ArrivedTrip> ArrivedOriginTrips { get; set; } = new HashSet<ArrivedTrip>();
+
+        public ICollection<ArrivedTrip> ArrivedDestinationTrips { get; set; } = new HashSet<ArrivedTrip>();
     }
 }

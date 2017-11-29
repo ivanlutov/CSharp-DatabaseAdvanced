@@ -38,6 +38,7 @@
             modelBuilder.ApplyConfiguration(new TicketConfiguration());
             modelBuilder.ApplyConfiguration(new TownConfiguration());
             modelBuilder.ApplyConfiguration(new TripConfiguration());
+            modelBuilder.ApplyConfiguration(new ArrivedTripConfiguration());
         }
     }
 }

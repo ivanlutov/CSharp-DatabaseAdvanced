@@ -1,4 +1,6 @@
-﻿namespace BusTicketSystem.Client.Core.Commands
+﻿using BusTicketSystem.Models;
+
+namespace BusTicketSystem.Client.Core.Commands
 {
     using System;
     using System.Linq;
@@ -20,47 +22,30 @@
                     throw new ArgumentException("Bus station doen not exist!");
                 }
 
-                var busStations = context
+                var busStation = context
                     .BusStations
-                    .Where(bs => bs.Id == busStationId)
-                    .Select(bs => new
-                    {
-                        BusStationName = bs.Name,
-                        BusStationTownName = bs.Town.Name,
-                        Arrivals = bs.OriginTrips.Select(t => new
-                        {
-                            OriginaStationName = t.OriginBusStation,
-                            ArriveAt = t.ArrivalTime,
-                            Status = t.Status
-                        })
-                        .ToList(),
-                        Departures = bs.DestinationTrips.Select(d => new
-                        {
-                            DestinationStationName = d.DestinationBusStation.Name,
-                            DepartAt = d.DepartureTime,
-                            Status = d.Status
-                        })
-                        .ToList()
-                    })
-                    .ToList();
+                    .Include(b => b.Town)
+                    .Include(b => b.OriginTrips)
+                        .ThenInclude(o => o.OriginBusStation)
+                    .Include(b => b.DestinationTrips)
+                        .ThenInclude(d => d.DestinationBusStation)
+                    .SingleOrDefault(bs => bs.Id == busStationId);
 
                 var sb = new StringBuilder();
 
-                foreach (var busStation in busStations)
+                sb.AppendLine($"{busStation.Name}, {busStation.Town.Name}");
+                sb.AppendLine("Arrivals:");
+                foreach (var trip in busStation.OriginTrips)
                 {
-                    sb.AppendLine($"{busStation.BusStationName}, {busStation.BusStationTownName}");
-                    sb.AppendLine("Arrivals:");
-                    foreach (var trip in busStation.Arrivals)
-                    {
-                        sb.AppendLine($"From: {trip.OriginaStationName} | Arrive at: {trip.ArriveAt.Hour}:{trip.ArriveAt.Minute} | Status: {trip.Status}");
-                    }
-
-                    sb.AppendLine("Departures:");
-                    foreach (var trip in busStation.Departures)
-                    {
-                        sb.AppendLine($"From: {trip.DestinationStationName} | Depart at: {trip.DepartAt.Hour}:{trip.DepartAt.Minute} | Status: {trip.Status}");
-                    }
+                    sb.AppendLine($"From {trip.OriginBusStation.Name} | Arrive at: {trip.ArrivalTime} | Status: {trip.Status}");
                 }
+
+                sb.AppendLine("Departures:");
+                foreach (var trip in busStation.DestinationTrips)
+                {
+                    sb.AppendLine($"To {trip.DestinationBusStation.Name} | Arrive at: {trip.DepartureTime} | Status: {trip.Status}");
+                }
+               
                 return sb.ToString().Trim();
             }
         }

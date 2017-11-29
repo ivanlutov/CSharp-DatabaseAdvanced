@@ -1,13 +1,15 @@
-﻿using System.Collections.Generic;
-using BusTicketSystem.Client.Core;
-using BusTicketSystem.Client.Interfaces;
-using BusTicketSystem.Data;
-using BusTicketSystem.Models;
-using Microsoft.EntityFrameworkCore.Query.Expressions;
+﻿
 
 namespace BusTicketSystem.Client
 {
     using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using BusTicketSystem.Client.Core;
+    using BusTicketSystem.Client.Interfaces;
+    using BusTicketSystem.Data;
+    using BusTicketSystem.Models;
+    using Microsoft.EntityFrameworkCore.Query.Expressions;
     public class Application
     {
         public static void Main(string[] args)
@@ -16,7 +18,7 @@ namespace BusTicketSystem.Client
             ICommandDispatcher dispatcher = new CommandDispatcher();
             IWriter writer = new ConsoleWriter();
             IReader reader = new ConsoleReader();
-            IEngine engine = new Engine(dispatcher,writer,reader);
+            IEngine engine = new Engine(dispatcher, writer, reader);
             engine.Run();
         }
 
@@ -51,7 +53,6 @@ namespace BusTicketSystem.Client
                     Country = "Bulgaria"
                 };
 
-
                 var townVarna = new Town()
                 {
                     Name = "Varna",
@@ -64,105 +65,86 @@ namespace BusTicketSystem.Client
                     Country = "Bulgaria"
                 };
 
-                db.Towns.AddRange(townSofia, townPlovdiv, townBurgas, townSvishtov, townTurnovo, townVarna);
+                db.Towns.AddRange(townPlovdiv, townBurgas, townSofia, townSvishtov, townTurnovo, townVarna);
                 db.SaveChanges();
 
                 var busCompany = new BusCompany()
                 {
-                    Name = "Company",
+                    Name = "Trans5",
                     Nationality = "BG",
-                    Rating = 5
+                    Rating = 9,
+                };
+                db.BusCompanies.Add(busCompany);
+                db.SaveChanges();
+
+                var busStation1 = new BusStation()
+                {
+                    Name = "Burgas",
+                    Town = townBurgas,
                 };
 
+                var busStation2 = new BusStation()
+                {
+                    Name = "Plovdiv",
+                    Town = townPlovdiv,
+                };
 
-                //var busStation = new BusStation()
-                //{
-                //    Name = "Sofia",
-                //    Town = townSofia,
-                //    OriginTrips = new List<Trip>()
-                //    {
-                       
-                //    }
-                //};
-               
-                //var arrTrip1 = new Trip()
-                //{
-                //    OriginBusStation = new BusStation()
-                //    {
-                //        Town = townBurgas
-                //    },
-                //    DestinationBusStation = new BusStation()
-                //    {
-                //        Town = townSofia
-                //    },
-                //    ArrivalTime = new DateTime(2017,01,01,14,30,00),
-                //    Status = Status.Departed,
-                //    BusCompany = busCompany
-                //};
+                db.BusStations.AddRange(busStation1, busStation2);
+                db.SaveChanges();
 
-                //var arrTrip2 = new Trip()
-                //{
-                //    OriginBusStation = new BusStation()
-                //    {
-                //        Town = townSvishtov
-                //    },
-                //    DestinationBusStation = new BusStation()
-                //    {
-                //        Town = townSofia
-                //    },
-                //    ArrivalTime = new DateTime(2017, 01, 01, 7, 30, 00),
-                //    Status = Status.Arrived,
-                //    BusCompany = busCompany
-                //};
+                var trip1 = new Trip()
+                {
+                    OriginBusStation = busStation1,
+                    DestinationBusStation = busStation2,
+                    Status = Status.Delayed,
+                    BusCompany = busCompany,
+                    ArrivalTime = DateTime.Now,
+                    DepartureTime = DateTime.Now,
+                };
 
-                //var arrTrip3 = new Trip()
-                //{
-                //    OriginBusStation = new BusStation()
-                //    {
-                //        Town = townTurnovo
-                //    },
-                //    DestinationBusStation = new BusStation()
-                //    {
-                //        Town = townSofia
-                //    },
-                //    ArrivalTime = new DateTime(2017, 01, 01, 14, 30, 00),
-                //    Status = Status.Departed,
-                //    BusCompany = busCompany
-                //};
+                var trip2 = new Trip()
+                {
+                    OriginBusStation = busStation2,
+                    DestinationBusStation = busStation1,
+                    Status = Status.Departed,
+                    BusCompany = busCompany,
+                    ArrivalTime = DateTime.Now,
+                    DepartureTime = DateTime.Now,
+                };
 
-                //var destTrip1 = new Trip()
-                //{
-                //    DestinationBusStation = new BusStation()
-                //    {
-                //        Name = "Varna",
-                //        Town = townVarna,
-                        
-                //    },
-                //    OriginBusStation = new BusStation()
-                //    {
-                //        Town = townSofia
-                //    },
-                //    ArrivalTime = new DateTime(2017, 01, 01, 14, 40, 00),
-                //    Status = Status.Delayed,
-                //    BusCompany = busCompany
-                //};
+                db.Trips.AddRange(trip1, trip2);
+                db.SaveChanges();
 
-                //var destTrip2 = new Trip()
-                //{
-                //    DestinationBusStation = new BusStation()
-                //    {
-                //        Town = townPlovdiv
-                //    },
-                //    OriginBusStation = new BusStation()
-                //    {
-                //        Town = townSofia
-                //    },
-                //    ArrivalTime = new DateTime(2017, 01, 01, 15, 30, 00),
-                //    Status = Status.Cancelled,
-                //    BusCompany = busCompany
-                //};
+                var bankAccount = new BankAccount()
+                {
+                    AccountNumber = "ABCD123",
+                    Balance = 5000
+                };
+                db.BankAccounts.Add(bankAccount);
+                db.SaveChanges();
 
-                //db.Trips.AddRange(arrTrip1, arrTrip2, arrTrip3, destTrip1, destTrip2);
+                var customer = new Customer()
+                {
+                    FirstName = "Ivan",
+                    LastName = "Lutov",
+                    HomeTown = townSofia,
+                    Gender = Gender.Male,
+                    DateOfBirth = new DateTime(1990, 08, 11),
+                    BankAccount = bankAccount
+                };
+
+                db.Customers.Add(customer);
+                db.SaveChanges();
+
+                var ticket = new Ticket()
+                {
+                    Price = 500,
+                    Seat = "A1",
+                    Trip = trip1,
+                    Customer = customer
+                };
+
+                db.Tickets.Add(ticket);
                 db.SaveChanges();
             }
         }

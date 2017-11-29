@@ -18,6 +18,11 @@
 
             using (BusTicketSystemContext context = new BusTicketSystemContext())
             {
+                if (price < 0)
+                {
+                    throw new InvalidOperationException("Invalid price!");
+                }
+
                 var customer = context.Customers.Include(c => c.BankAccount).SingleOrDefault(c => c.Id == customerId);
                 if (customer == null)
                 {
@@ -49,9 +54,8 @@
                    Seat = seat,
                    Trip = trip
                 };
-                context.Tickets.Add(ticket);
-                customer.Ticket = ticket;
 
+                context.Tickets.Add(ticket);
                 context.SaveChanges();
 
                 return $"Customer {customer.FirstName} {customer.LastName} bought ticket for trip {trip.Id} for ${price:F2} on seat {seat}";

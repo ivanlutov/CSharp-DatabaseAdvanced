@@ -13,7 +13,8 @@
             builder
                 .HasOne(b => b.Customer)
                 .WithOne(c => c.BankAccount)
-                .HasForeignKey<BankAccount>(b => b.CustomerId);
+                .HasForeignKey<BankAccount>(b => b.CustomerId)
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

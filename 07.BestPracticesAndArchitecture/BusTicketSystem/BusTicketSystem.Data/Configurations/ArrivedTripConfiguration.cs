@@ -10,6 +10,18 @@ namespace BusTicketSystem.Data.Configurations
         {
             builder
                 .ToTable("ArrivedTrips");
+
+            builder
+                .HasOne(at => at.OriginBusStation)
+                .WithMany(bs => bs.ArrivedOriginTrips)
+                .HasForeignKey(at => at.OriginBusStationId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder
+                .HasOne(at => at.DestinationBusStation)
+                .WithMany(bs => bs.ArrivedDestinationTrips)
+                .HasForeignKey(at => at.DestinationBusStationId)
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace BusTicketSystem.Client.Core
+﻿using System.Linq;
+
+namespace BusTicketSystem.Client.Core
 {
     using System;
     using BusTicketSystem.Client.Interfaces;
@@ -16,16 +18,19 @@
         }
         public void Run()
         {
-            try
+            while (true)
             {
-                var input = reader.ReadLine();
-                var data = input.Split(new [] {' '}, StringSplitOptions.RemoveEmptyEntries);
-                var result = dispatcher.DispatchCommand(data);
-                writer.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
+                try
+                {
+                    var input = reader.ReadLine();
+                    var data = input.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).ToArray();
+                    var result = dispatcher.DispatchCommand(data);
+                    writer.WriteLine(result);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
             }
         }
     }

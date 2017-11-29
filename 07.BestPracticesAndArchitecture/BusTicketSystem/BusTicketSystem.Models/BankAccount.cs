@@ -6,7 +6,7 @@
         public string AccountNumber { get; set; }
         public decimal Balance { get; set; }
 
-        public int CustomerId { get; set; }
+        public int? CustomerId { get; set; }
         public Customer Customer { get; set; }
 
         public bool IsEnoughMoney(decimal amount)

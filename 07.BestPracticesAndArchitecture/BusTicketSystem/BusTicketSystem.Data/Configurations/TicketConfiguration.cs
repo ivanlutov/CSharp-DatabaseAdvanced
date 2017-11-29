@@ -11,9 +11,9 @@
                 .ToTable("Tickets");
 
             builder
-                .HasOne(tic => tic.Customer)
-                .WithOne(c => c.Ticket)
-                .HasForeignKey<Ticket>(tic => tic.CustomerId);
+                .HasOne(t => t.Customer)
+                .WithMany(c => c.Tickets)
+                .HasForeignKey(t => t.CustomerId);
         }
     }
 }

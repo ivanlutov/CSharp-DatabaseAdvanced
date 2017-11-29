@@ -14,7 +14,7 @@
             var customerId = int.Parse(args[0]);
             var grade = double.Parse(args[1]);
             var busCompanyName = args[2];
-            var content = args[3];
+            var content = args.Skip(3).ToArray();
 
             using (BusTicketSystemContext context = new BusTicketSystemContext())
             {
@@ -35,7 +35,7 @@
                     BusCompany = company,
                     Customer = customer,
                     Grade = grade,
-                    Content = content,
+                    Content = string.Join(" ", content),
                     Publishing = DateTime.Now
                 };
 

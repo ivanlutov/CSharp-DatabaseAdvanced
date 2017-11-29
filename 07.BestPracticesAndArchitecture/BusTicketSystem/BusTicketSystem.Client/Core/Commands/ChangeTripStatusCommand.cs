@@ -10,11 +10,10 @@ namespace BusTicketSystem.Client.Core.Commands
 
     public class ChangeTripStatusCommand : ICommand
     {
-        //change-trip-status {Trip Id} {New Status}
         public string Execute(string[] args)
         {
             var tripId = int.Parse(args[0]);
-            var newStatus = args[1];
+            var newStatusToString = args[1];
 
             using (BusTicketSystemContext context = new BusTicketSystemContext())
             {
@@ -31,7 +30,7 @@ namespace BusTicketSystem.Client.Core.Commands
                 }
 
                 object status;
-                Enum.TryParse(typeof(Status), newStatus, out status);
+                Enum.TryParse(typeof(Status), newStatusToString, out status);
 
                 if (status == null)
                 {
@@ -39,12 +38,43 @@ namespace BusTicketSystem.Client.Core.Commands
                 }
 
                 var oldStatus = trip.Status;
-                trip.Status = (Status)status;
-                context.SaveChanges();
+                var newStatus = (Status) status;
+                trip.Status = newStatus;
 
-                return $@"Trip from {trip.OriginBusStation.Town.Name} to {trip.DestinationBusStation.Town.Name} on {
-                        trip.DepartureTime
-                    } Status changed from {oldStatus} to {trip.Status}";
+                bool arrivedStatus = false;
+
+                ArrivedTrip arrivedTrip = null;
+                if (newStatus == Status.Arrived)
+                {
+                    arrivedStatus = true;
+                    var passengersCount = context
+                        .Tickets
+                        .Include(t => t.Trip)
+                        .Count(t => t.Trip.Id == trip.Id);
+
+                    arrivedTrip = new ArrivedTrip
+                    {
+                        OriginBusStation = trip.OriginBusStation,
+                        DestinationBusStation = trip.DestinationBusStation,
+                        ArrivalTime = trip.ArrivalTime,
+                        PassengersCount = passengersCount
+                    };
+
+                    context.ArrivedTrips.Add(arrivedTrip);
+                }
+
+                context.SaveChanges();
+                var result =
+                    $@"Trip from {trip.OriginBusStation.Town.Name} to {trip.DestinationBusStation.Town.Name} on {
+                            trip.DepartureTime
+                        } Status changed from {oldStatus} to {trip.Status}";
+
+                if (arrivedStatus)
+                {
+                    result += $" - {arrivedTrip.PassengersCount} passengers arrived at {arrivedTrip.DestinationBusStation.Town.Name} from {arrivedTrip.OriginBusStation.Town.Name}";
+                }
+
+                return result;
             }
         }
     }

@@ -11,12 +11,22 @@
         public string DispatchCommand(string[] commandParameters)
         {
             var commandArgs = commandParameters[0].Split('-');
-            var commandName = ToTitleCase(commandArgs[0]) + ToTitleCase(commandArgs[1]) + SuffixCommand;
-            var args = commandParameters.Skip(1).ToArray();
+            var commandName = string.Empty;
+            if (commandArgs.Length == 1)
+            {
+                commandName = commandArgs[0] + SuffixCommand;
+            }
+            else
+            {
+                foreach (var arg in commandArgs)
+                {
+                    commandName += ToTitleCase(arg);
+                }
 
-            //var executingCommand = Assembly.GetExecutingAssembly()
-            //    .GetTypes()
-            //    .SingleOrDefault(t => t.Name == commandName && t.GetInterfaces().Any(i => i == typeof(ICommand)));
+                commandName += SuffixCommand;
+            }
+
+            var args = commandParameters.Skip(1).ToArray();
 
             var executingCommand = Assembly
                 .GetExecutingAssembly()
