@@ -6,6 +6,7 @@
     {
         public int Id { get; set; }
         public double Grade { get; set; }
+        public string Content { get; set; }
 
         public int BusCompanyId { get; set; }
         public BusCompany BusCompany { get; set; }

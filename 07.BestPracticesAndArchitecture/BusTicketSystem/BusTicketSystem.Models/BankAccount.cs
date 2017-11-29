@@ -8,5 +8,15 @@
 
         public int CustomerId { get; set; }
         public Customer Customer { get; set; }
+
+        public bool IsEnoughMoney(decimal amount)
+        {
+            return this.Balance >= amount;
+        }
+
+        public void Withdraw(decimal amount)
+        {
+            this.Balance -= amount;
+        }
     }
 }

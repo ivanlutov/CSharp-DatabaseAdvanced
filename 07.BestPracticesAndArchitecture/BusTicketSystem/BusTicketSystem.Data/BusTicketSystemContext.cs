@@ -18,6 +18,7 @@
         public DbSet<Ticket> Tickets { get; set; }
         public DbSet<Town> Towns { get; set; }
         public DbSet<Trip> Trips { get; set; }
+        public DbSet<ArrivedTrip> ArrivedTrips { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

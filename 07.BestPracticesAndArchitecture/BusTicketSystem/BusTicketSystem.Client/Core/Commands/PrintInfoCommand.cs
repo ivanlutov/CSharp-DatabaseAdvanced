@@ -61,19 +61,6 @@
                         sb.AppendLine($"From: {trip.DestinationStationName} | Depart at: {trip.DepartAt.Hour}:{trip.DepartAt.Minute} | Status: {trip.Status}");
                     }
                 }
-                //sb.AppendLine($"{busStation.}, {busStation.Town.Name}");
-                //sb.AppendLine("Arrivals:");
-                //foreach (var trip in busStation.OriginTrips)
-                //{
-                //    sb.AppendLine($"From: {trip.OriginBusStation.Town.Name} | Arrive at: {trip.ArrivalTime.Hour}:{trip.ArrivalTime.Minute} | Status: {trip.Status}");
-                //}
-
-                //sb.AppendLine("Departures:");
-                //foreach (var trip in busStation.DestinationTrips)
-                //{
-                //    sb.AppendLine($"From: {trip.DestinationBusStation.Town.Name} | Depart at: {trip.DepartureTime.Hour}:{trip.DepartureTime.Minute} | Status: {trip.Status}");
-                //}
-
                 return sb.ToString().Trim();
             }
         }
