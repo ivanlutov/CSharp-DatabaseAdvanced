@@ -312,19 +312,24 @@
                 context.Categories.AddRange(categoriesToDatabase);
                 context.SaveChanges();
 
-                var categoriesCount = categoriesToDatabase.Count;
-                var productsCount = context.Products.Count();
+                var categoryIds = context.Categories.Select(c => c.Id).ToArray();
+                var productIds = context.Products.Select(p => p.Id).ToArray();
 
                 var categoryProducts = new List<CategoryProduct>();
-                for (int i = 1; i < productsCount + 1; i++)
+
+                foreach (var pId in productIds)
                 {
+                    var index = rnd.Next(0, categoryIds.Length);
+                    var categoryId = categoryIds[index];
+
                     var currentCategoryProduct = new CategoryProduct()
                     {
-                        ProductId = i,
-                        CategoryId = rnd.Next(1, categoriesCount + 1)
+                        ProductId = pId,
+                        CategoryId = categoryId
                     };
 
                     categoryProducts.Add(currentCategoryProduct);
+
                 }
 
                 context.CategoryProducts.AddRange(categoryProducts);
@@ -342,7 +347,7 @@
 
             using (ProductShopContext context = new ProductShopContext())
             {
-                var usersCount = context.Users.Count();
+                var userIds = context.Users.Select(u => u.Id).ToArray();
 
                 foreach (var product in products)
                 {
@@ -355,7 +360,9 @@
                         Price = price
                     };
 
-                    var sellerId = rnd.Next(1, usersCount + 1);
+                    var index = rnd.Next(0, userIds.Length);
+                    var sellerId = userIds[index];
+
                     currentProduct.SellerId = sellerId;
                     productsToDatabase.Add(currentProduct);
                 }
@@ -363,15 +370,18 @@
                 context.Products.AddRange(productsToDatabase);
                 context.SaveChanges();
 
-                var productsCount = context.Products.Count();
-                for (int i = 1; i < productsCount / 4; i++)
+                var productBuyer = context.Products.ToArray();
+                for (int i = 0; i < productBuyer.Length / 4; i++)
                 {
-                    var currentProduct = context.Products.Find(i);
+                    var currentProduct = productBuyer[i];
 
-                    var buyerId = rnd.Next(1, usersCount + 1);
+                    var index = rnd.Next(0, userIds.Length);
+                    var buyerId = userIds[index];
+
                     while (currentProduct.SellerId == buyerId)
                     {
-                        buyerId = rnd.Next(1, usersCount + 1);
+                        index = rnd.Next(0, userIds.Length);
+                        buyerId = userIds[index];
                     }
 
                     currentProduct.BuyerId = buyerId;
@@ -395,19 +405,15 @@
                 {
                     var firstName = user.Attribute("firstName")?.Value;
                     var lastName = user.Attribute("lastName")?.Value;
-
-                    var ageAttribute = user.Attribute("age")?.Value ?? "null";
-                    int? age = null;
-                    if (ageAttribute != "null")
-                    {
-                        age = int.Parse(user.Attribute("age").Value);
-                    }
+                    var ageAttribute = user.Attribute("age")?.Value;
+                    
+                    int? parsedAge = int.TryParse(ageAttribute, out int parseResult) ? parseResult : default(int?);
 
                     var currentUser = new User()
                     {
                         FirstName = firstName,
                         LastName = lastName,
-                        Age = age
+                        Age = parsedAge
                     };
 
                     usersToDatabase.Add(currentUser);
@@ -575,16 +581,19 @@
                 context.Categories.AddRange(categories);
                 context.SaveChanges();
 
-                var categoriesCount = categories.Length;
-                var productCount = context.Products.Count();
+                var categoryIds = context.Categories.Select(c => c.Id).ToArray();
+                var productsIds = context.Products.Select(p => p.Id).ToArray();
+
                 var categoryProducts = new List<CategoryProduct>();
 
-                for (int i = 1; i < productCount + 1; i++)
+                foreach (var pId in productsIds)
                 {
-                    var categoryId = rnd.Next(1, categoriesCount + 1);
+                    var index = rnd.Next(0, categoryIds.Length);
+                    var categoryId = categoryIds[index];
+
                     var currentCategoryProduct = new CategoryProduct()
                     {
-                        ProductId = i,
+                        ProductId = pId,
                         CategoryId = categoryId
                     };
 
@@ -600,26 +609,30 @@
         {
             var productsJson = File.ReadAllText("products.json");
             var products = JsonConvert.DeserializeObject<Product[]>(productsJson);
+
             Random rnd = new Random();
+
             using (ProductShopContext context = new ProductShopContext())
             {
-                var userCount = context.Users.Count();
+                var userIds = context.Users.Select(u => u.Id).ToArray();
 
                 foreach (var product in products)
                 {
-                    var sellerId = rnd.Next(1, userCount + 1);
+                    var index = rnd.Next(0, userIds.Length);
+                    var sellerId = userIds[index];
+
                     product.SellerId = sellerId;
                 }
 
                 for (int i = 0; i < products.Length / 4; i++)
                 {
-                    var buyerId = rnd.Next(1, userCount + 1);
-                    while (products[i].SellerId == buyerId)
+                    var index = rnd.Next(0, userIds.Length);
+                    while (products[i].SellerId == userIds[index])
                     {
-                        buyerId = rnd.Next(1, userCount + 1);
+                        index = rnd.Next(0, userIds.Length);
                     }
 
-                    products[i].BuyerId = buyerId;
+                    products[i].BuyerId = userIds[index];
                 }
 
                 context.Products.AddRange(products);

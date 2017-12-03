@@ -3,108 +3,16 @@
   <user first-name="" last-name="Baker">
     <sold-products>
       <product>
-        <name>$Prednisone</name>
-        <price>1285.99</price>
+        <name>$Meloxicam</name>
+        <price>809.18</price>
       </product>
       <product>
-        <name>$Strattera</name>
-        <price>658.54</price>
+        <name>$Archangelica Eucalyptus</name>
+        <price>1334.91</price>
       </product>
     </sold-products>
   </user>
-  <user first-name="" last-name="Bennett">
-    <sold-products>
-      <product>
-        <name>$CARBIDOPA AND LEVODOPA</name>
-        <price>441.64</price>
-      </product>
-      <product>
-        <name>$pain relief</name>
-        <price>938.23</price>
-      </product>
-    </sold-products>
-  </user>
-  <user first-name="" last-name="Cunningham">
-    <sold-products>
-      <product>
-        <name>$olio activ mouthwash</name>
-        <price>206.06</price>
-      </product>
-    </sold-products>
-  </user>
-  <user first-name="" last-name="Fox">
-    <sold-products>
-      <product>
-        <name>$Pleo Ginkgo</name>
-        <price>613.65</price>
-      </product>
-      <product>
-        <name>$Azithromycin</name>
-        <price>813.87</price>
-      </product>
-    </sold-products>
-  </user>
-  <user first-name="" last-name="Stewart">
-    <sold-products>
-      <product>
-        <name>$AIR</name>
-        <price>581.69</price>
-      </product>
-    </sold-products>
-  </user>
-  <user first-name="" last-name="Thompson">
-    <sold-products>
-      <product>
-        <name>$Pollens - Trees, Birch Mix</name>
-        <price>1153.54</price>
-      </product>
-    </sold-products>
-  </user>
-  <user first-name="Ann" last-name="Stevens">
-    <sold-products>
-      <product>
-        <name>$PREMIER VALUE ALLERGY</name>
-        <price>1127.61</price>
-      </product>
-      <product>
-        <name>$Perrigo Benzoyl Peroxide</name>
-        <price>873.24</price>
-      </product>
-    </sold-products>
-  </user>
-  <user first-name="Anna" last-name="Clark">
-    <sold-products>
-      <product>
-        <name>$Allopurinol</name>
-        <price>336.81</price>
-      </product>
-      <product>
-        <name>$IOPE RETIGEN MOISTURE TWIN CAKE NO.21</name>
-        <price>1257.71</price>
-      </product>
-    </sold-products>
-  </user>
-  <user first-name="Anna" last-name="Parker">
-    <sold-products>
-      <product>
-        <name>$Ibuprofen</name>
-        <price>1088.04</price>
-      </product>
-    </sold-products>
-  </user>
-  <user first-name="Arthur" last-name="Reynolds">
-    <sold-products>
-      <product>
-        <name>$Cefadroxil</name>
-        <price>1302.20</price>
-      </product>
-      <product>
-        <name>$Protonix</name>
-        <price>466.70</price>
-      </product>
-    </sold-products>
-  </user>
-  <user first-name="Benjamin" last-name="Henry">
+  <user first-name="" last-name="Mitchell">
     <sold-products>
       <product>
         <name>$Growing Pains</name>
@@ -112,199 +20,211 @@
       </product>
     </sold-products>
   </user>
-  <user first-name="Betty" last-name="Lawson">
+  <user first-name="" last-name="Moreno">
     <sold-products>
       <product>
-        <name>$Extra Strength Pain Reliever PM</name>
-        <price>542.72</price>
+        <name>$MOIST MOISTURE SKIN TONER</name>
+        <price>152.43</price>
+      </product>
+      <product>
+        <name>$Parsley</name>
+        <price>519.06</price>
+      </product>
+      <product>
+        <name>$Azithromycin</name>
+        <price>813.87</price>
       </product>
     </sold-products>
   </user>
-  <user first-name="Billy" last-name="Parker">
+  <user first-name="" last-name="Schmidt">
     <sold-products>
-      <product>
-        <name>$Gemcitabine</name>
-        <price>594.79</price>
-      </product>
-    </sold-products>
-  </user>
-  <user first-name="Bonnie" last-name="Fox">
-    <sold-products>
-      <product>
-        <name>$Pollens - Weeds and Garden Plants, Scotch Broom Cytisus scoparius</name>
-        <price>135.82</price>
-      </product>
-    </sold-products>
-  </user>
-  <user first-name="Brandon" last-name="Fuller">
-    <sold-products>
-      <product>
-        <name>$Echinacea Quartz Gum Support</name>
-        <price>570.08</price>
-      </product>
-    </sold-products>
-  </user>
-  <user first-name="Christine" last-name="Gomez">
-    <sold-products>
-      <product>
-        <name>$Meloxicam</name>
-        <price>809.18</price>
-      </product>
-      <product>
-        <name>$Nighttime Sleep Aid</name>
-        <price>1217.11</price>
-      </product>
-      <product>
-        <name>$Effervescent Cold Relief</name>
-        <price>1436.07</price>
-      </product>
-    </sold-products>
-  </user>
-  <user first-name="Clarence" last-name="Fowler">
-    <sold-products>
-      <product>
-        <name>$Irbesartan and Hydrochlorothiazide</name>
-        <price>308.30</price>
-      </product>
-    </sold-products>
-  </user>
-  <user first-name="Doris" last-name="Cook">
-    <sold-products>
-      <product>
-        <name>$Fluoxetine</name>
-        <price>385.37</price>
-      </product>
-      <product>
-        <name>$AVANDAMET</name>
-        <price>632.08</price>
-      </product>
-    </sold-products>
-  </user>
-  <user first-name="Emily" last-name="Parker">
-    <sold-products>
-      <product>
-        <name>$GEMCITABINE</name>
-        <price>1468.11</price>
-      </product>
       <product>
         <name>$ropinirole hydrochloride</name>
         <price>103.58</price>
       </product>
     </sold-products>
   </user>
-  <user first-name="Eugene" last-name="Stewart">
+  <user first-name="Amanda" last-name="Frazier">
     <sold-products>
       <product>
-        <name>$PAMO Kill Natural</name>
-        <price>1181.06</price>
-      </product>
-      <product>
-        <name>$Propranolol Hydrochloride</name>
-        <price>546.95</price>
+        <name>$Care One Hemorrhoidal</name>
+        <price>932.18</price>
       </product>
     </sold-products>
   </user>
-  <user first-name="Gloria" last-name="Alexander">
+  <user first-name="Ann" last-name="Stevens">
     <sold-products>
       <product>
-        <name>$Aspen</name>
-        <price>1046.46</price>
+        <name>$Effervescent Cold Relief</name>
+        <price>1436.07</price>
       </product>
     </sold-products>
   </user>
-  <user first-name="Jacqueline" last-name="Perez">
+  <user first-name="Anna" last-name="Parker">
     <sold-products>
       <product>
-        <name>$Parsley</name>
-        <price>519.06</price>
+        <name>$PREMIER VALUE ALLERGY</name>
+        <price>1127.61</price>
       </product>
-    </sold-products>
-  </user>
-  <user first-name="Jeremy" last-name="Woods">
-    <sold-products>
-      <product>
-        <name>$Trihexyphenidyl Hydrochloride</name>
-        <price>64.88</price>
-      </product>
-    </sold-products>
-  </user>
-  <user first-name="Jonathan" last-name="Rodriguez">
-    <sold-products>
-      <product>
-        <name>$MOIST MOISTURE SKIN TONER</name>
-        <price>152.43</price>
-      </product>
-    </sold-products>
-  </user>
-  <user first-name="Joshua" last-name="Murray">
-    <sold-products>
-      <product>
-        <name>$Amitiza</name>
-        <price>666.58</price>
-      </product>
-      <product>
-        <name>$Aquafresh</name>
-        <price>849.93</price>
-      </product>
-    </sold-products>
-  </user>
-  <user first-name="Kathy" last-name="Gilbert">
-    <sold-products>
-      <product>
-        <name>$Warfarin Sodium</name>
-        <price>138.83</price>
-      </product>
-    </sold-products>
-  </user>
-  <user first-name="Marie" last-name="Williamson">
-    <sold-products>
-      <product>
-        <name>$Archangelica Eucalyptus</name>
-        <price>1334.91</price>
-      </product>
-    </sold-products>
-  </user>
-  <user first-name="Nicole" last-name="Martinez">
-    <sold-products>
       <product>
         <name>$ENBREL</name>
         <price>673.97</price>
       </product>
     </sold-products>
   </user>
-  <user first-name="Patricia" last-name="Cooper">
+  <user first-name="Arthur" last-name="Reynolds">
     <sold-products>
       <product>
-        <name>$Care One Hemorrhoidal</name>
-        <price>932.18</price>
+        <name>$Extra Strength Pain Reliever PM</name>
+        <price>542.72</price>
       </product>
       <product>
-        <name>$IOPE SUPER VITAL</name>
-        <price>824.68</price>
-      </product>
-      <product>
-        <name>$SUMATRIPTAN SUCCINATE</name>
-        <price>1265.94</price>
-      </product>
-      <product>
-        <name>$Topiramate</name>
-        <price>578.77</price>
+        <name>$Allopurinol</name>
+        <price>336.81</price>
       </product>
     </sold-products>
   </user>
-  <user first-name="Patrick" last-name="King">
+  <user first-name="Betty" last-name="Ward">
+    <sold-products>
+      <product>
+        <name>$Goats Milk</name>
+        <price>298.53</price>
+      </product>
+    </sold-products>
+  </user>
+  <user first-name="Bonnie" last-name="Fox">
+    <sold-products>
+      <product>
+        <name>$Trihexyphenidyl Hydrochloride</name>
+        <price>64.88</price>
+      </product>
+      <product>
+        <name>$Protonix</name>
+        <price>466.70</price>
+      </product>
+    </sold-products>
+  </user>
+  <user first-name="Brandon" last-name="Fuller">
+    <sold-products>
+      <product>
+        <name>$Strattera</name>
+        <price>658.54</price>
+      </product>
+    </sold-products>
+  </user>
+  <user first-name="Brenda" last-name="Howell">
+    <sold-products>
+      <product>
+        <name>$IOPE RETIGEN MOISTURE TWIN CAKE NO.21</name>
+        <price>1257.71</price>
+      </product>
+    </sold-products>
+  </user>
+  <user first-name="Carl" last-name="Daniels">
+    <sold-products>
+      <product>
+        <name>$Gemcitabine</name>
+        <price>594.79</price>
+      </product>
+      <product>
+        <name>$Nighttime Sleep Aid</name>
+        <price>1217.11</price>
+      </product>
+    </sold-products>
+  </user>
+  <user first-name="Chris" last-name="Mitchell">
+    <sold-products>
+      <product>
+        <name>$Fluoxetine</name>
+        <price>385.37</price>
+      </product>
+    </sold-products>
+  </user>
+  <user first-name="Doris" last-name="Cook">
+    <sold-products>
+      <product>
+        <name>$Labetalol Hydrochloride</name>
+        <price>1345.11</price>
+      </product>
+      <product>
+        <name>$Prednisone</name>
+        <price>1285.99</price>
+      </product>
+      <product>
+        <name>$Americaine</name>
+        <price>1165.75</price>
+      </product>
+    </sold-products>
+  </user>
+  <user first-name="Fred" last-name="Barnes">
     <sold-products>
       <product>
         <name>$Allopurinol</name>
         <price>48.80</price>
       </product>
+      <product>
+        <name>$olio activ mouthwash</name>
+        <price>206.06</price>
+      </product>
     </sold-products>
   </user>
-  <user first-name="Sandra" last-name="Riley">
+  <user first-name="Gloria" last-name="Alexander">
+    <sold-products>
+      <product>
+        <name>$Cefadroxil</name>
+        <price>1302.20</price>
+      </product>
+      <product>
+        <name>$Perrigo Benzoyl Peroxide</name>
+        <price>873.24</price>
+      </product>
+      <product>
+        <name>$Pollens - Trees, Birch Mix</name>
+        <price>1153.54</price>
+      </product>
+    </sold-products>
+  </user>
+  <user first-name="Jacqueline" last-name="Perez">
+    <sold-products>
+      <product>
+        <name>$GEMCITABINE</name>
+        <price>1468.11</price>
+      </product>
+    </sold-products>
+  </user>
+  <user first-name="Jean" last-name="Henry">
+    <sold-products>
+      <product>
+        <name>$PAMO Kill Natural</name>
+        <price>1181.06</price>
+      </product>
+      <product>
+        <name>$SUMATRIPTAN SUCCINATE</name>
+        <price>1265.94</price>
+      </product>
+    </sold-products>
+  </user>
+  <user first-name="Jennifer" last-name="Riley">
     <sold-products>
       <product>
         <name>$Fair Foundation SPF 15</name>
         <price>1394.24</price>
+      </product>
+      <product>
+        <name>$Irbesartan and Hydrochlorothiazide</name>
+        <price>308.30</price>
+      </product>
+    </sold-products>
+  </user>
+  <user first-name="Jeremy" last-name="Woods">
+    <sold-products>
+      <product>
+        <name>$AIR</name>
+        <price>581.69</price>
+      </product>
+      <product>
+        <name>$Echinacea Quartz Gum Support</name>
+        <price>570.08</price>
       </product>
       <product>
         <name>$Pollens - Weeds and Garden Plants, Nettle Urtica dioica</name>
@@ -312,19 +232,87 @@
       </product>
     </sold-products>
   </user>
-  <user first-name="Sarah" last-name="Day">
+  <user first-name="Jonathan" last-name="Rodriguez">
     <sold-products>
       <product>
-        <name>$Labetalol Hydrochloride</name>
-        <price>1345.11</price>
+        <name>$Aspen</name>
+        <price>1046.46</price>
+      </product>
+      <product>
+        <name>$AVANDAMET</name>
+        <price>632.08</price>
+      </product>
+    </sold-products>
+  </user>
+  <user first-name="Joshua" last-name="Murray">
+    <sold-products>
+      <product>
+        <name>$Aquafresh</name>
+        <price>849.93</price>
+      </product>
+      <product>
+        <name>$Pollens - Weeds and Garden Plants, Scotch Broom Cytisus scoparius</name>
+        <price>135.82</price>
+      </product>
+    </sold-products>
+  </user>
+  <user first-name="Marie" last-name="Williamson">
+    <sold-products>
+      <product>
+        <name>$Topiramate</name>
+        <price>578.77</price>
+      </product>
+      <product>
+        <name>$pain relief</name>
+        <price>938.23</price>
+      </product>
+    </sold-products>
+  </user>
+  <user first-name="Nicole" last-name="Martinez">
+    <sold-products>
+      <product>
+        <name>$Amitiza</name>
+        <price>666.58</price>
+      </product>
+    </sold-products>
+  </user>
+  <user first-name="Patricia" last-name="Cooper">
+    <sold-products>
+      <product>
+        <name>$Propranolol Hydrochloride</name>
+        <price>546.95</price>
+      </product>
+    </sold-products>
+  </user>
+  <user first-name="Patricia" last-name="Fuller">
+    <sold-products>
+      <product>
+        <name>$IOPE SUPER VITAL</name>
+        <price>824.68</price>
+      </product>
+    </sold-products>
+  </user>
+  <user first-name="Rachel" last-name="Johnson">
+    <sold-products>
+      <product>
+        <name>$Warfarin Sodium</name>
+        <price>138.83</price>
+      </product>
+      <product>
+        <name>$CARBIDOPA AND LEVODOPA</name>
+        <price>441.64</price>
       </product>
     </sold-products>
   </user>
   <user first-name="Thomas" last-name="Snyder">
     <sold-products>
       <product>
-        <name>$Americaine</name>
-        <price>1165.75</price>
+        <name>$Pleo Ginkgo</name>
+        <price>613.65</price>
+      </product>
+      <product>
+        <name>$Ibuprofen</name>
+        <price>1088.04</price>
       </product>
     </sold-products>
   </user>

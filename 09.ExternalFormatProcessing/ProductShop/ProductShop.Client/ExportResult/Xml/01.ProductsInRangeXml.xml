@@ -1,20 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <products>
-  <product name="Cefadroxil" price="1302.20" buyer="Jacqueline Perez" />
-  <product name="PAMO Kill Natural" price="1181.06" buyer="Betty Lawson" />
-  <product name="Aspen" price="1046.46" buyer="Jeremy Woods" />
-  <product name="Fair Foundation SPF 15" price="1394.24" buyer="Brenda Howell" />
-  <product name="Ibuprofen" price="1088.04" buyer="Clarence Fowler" />
-  <product name="PREMIER VALUE ALLERGY" price="1127.61" buyer="Brenda Howell" />
-  <product name="Labetalol Hydrochloride" price="1345.11" buyer="Emily Parker" />
-  <product name="Prednisone" price="1285.99" buyer="Nicole Martinez" />
-  <product name="Growing Pains" price="1077.37" buyer="Sarah Day" />
-  <product name="Americaine" price="1165.75" buyer=" Thompson" />
-  <product name="SUMATRIPTAN SUCCINATE" price="1265.94" buyer="Joshua Murray" />
-  <product name="GEMCITABINE" price="1468.11" buyer="Doris Cook" />
-  <product name="Nighttime Sleep Aid" price="1217.11" buyer="Rachel Johnson" />
-  <product name="Archangelica Eucalyptus" price="1334.91" buyer=" Baker" />
-  <product name="Effervescent Cold Relief" price="1436.07" buyer="Brenda Howell" />
-  <product name="Pollens - Trees, Birch Mix" price="1153.54" buyer=" Mitchell" />
-  <product name="IOPE RETIGEN MOISTURE TWIN CAKE NO.21" price="1257.71" buyer="Gloria Alexander" />
+  <product name="Cefadroxil" price="1302.20" buyer="Marie Williamson" />
+  <product name="PAMO Kill Natural" price="1181.06" buyer="Anna Clark" />
+  <product name="Aspen" price="1046.46" buyer="Bonnie Fox" />
+  <product name="Fair Foundation SPF 15" price="1394.24" buyer="Nicole Harris" />
+  <product name="Ibuprofen" price="1088.04" buyer="Sandra Riley" />
+  <product name="PREMIER VALUE ALLERGY" price="1127.61" buyer="Billy Parker" />
+  <product name="Labetalol Hydrochloride" price="1345.11" buyer="Sandra Riley" />
+  <product name="Prednisone" price="1285.99" buyer="Marie Williamson" />
+  <product name="Growing Pains" price="1077.37" buyer="Fred Allen" />
+  <product name="Americaine" price="1165.75" buyer=" Mitchell" />
+  <product name="SUMATRIPTAN SUCCINATE" price="1265.94" buyer="Jeremy Woods" />
+  <product name="GEMCITABINE" price="1468.11" buyer="Fred Barnes" />
+  <product name="Nighttime Sleep Aid" price="1217.11" buyer="Sarah Day" />
+  <product name="Archangelica Eucalyptus" price="1334.91" buyer="Christine Gomez" />
+  <product name="Effervescent Cold Relief" price="1436.07" buyer="Bonnie Fox" />
+  <product name="Pollens - Trees, Birch Mix" price="1153.54" buyer="Joshua Murray" />
+  <product name="IOPE RETIGEN MOISTURE TWIN CAKE NO.21" price="1257.71" buyer="Joshua Murray" />
 </products>
