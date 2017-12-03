@@ -18,16 +18,24 @@
     {
         public static void Main()
         {
-            ResetDatabase();
             InitializeMapper();
-
             CreateDirectories();
 
+            Console.WriteLine("Begin reset database!Please wait!");
+            ResetDatabase();
+            Console.WriteLine("Database successfully reset!");
             ImportDataJson();
+            Console.WriteLine("Successfully imported json data!");
             ExportJson();
+            Console.WriteLine(@"Successfully exported json data! View in directory ""ExportResult\Json""");
 
+            Console.WriteLine("Begin reset database!Please wait!");
+            ResetDatabase();
+            Console.WriteLine("Database successfully reset!");
             ImportDataXml();
+            Console.WriteLine("Successfully imported xml data!");
             ExportXml();
+            Console.WriteLine(@"Successfully exported xml data! View in directory ""ExportResult\Xml""");
         }
 
         private static void CreateDirectories()
